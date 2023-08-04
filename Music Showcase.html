@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zoey Lynn (Official Site)</title>
+  <style>
+    /* Reset default styles */
+    body, h1, h2, h3, p, ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background-color: #1a1a1a;
+    }
+
+    /* Header */
+    header {
+      background-color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 36px;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #444;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    /* Hero section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://images.unsplash.com/uploads/1412282232015a06e258a/4bdd2a58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 24px;
+    }
+
+    /* About section */
+    .about {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Music section */
+    .music {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .music h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .music p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #444;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Cool scroll effect */
+    section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Scroll Down Button */
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!--<nav>
+    <a href="#about">About</a>
+    <a href="#music">Music</a>
+    <a href="#contact">Contact</a>
+  </nav>-->
+
+  <div id="hero" class="hero">
+    <div>
+      <h2>Zoey Lynn</h2>
+      <p>Explore the beats and rhythms that move your soul.</p>
+    </div>
+  </div>
+
+  <!--<div id="about" class="about">
+    <div>
+      <h2>About Me</h2>
+      <p>Hi I'm Zoey...</p>
+    </div>
+  </div>-->
+
+  <div id="music" class="music">
+    <div>
+      <h2>Our Music Collection</h2>
+       <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/24OkFIRFFhLH4XPjtVIWa8?utm_source=generator" width="90%" height="250" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+     </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 ZB Northern Sky, LLC. All rights reserved.</p>
+  </footer>
+
+  <div class="scroll-down" onclick="scrollToSection('.about')">&#x2193;</div>
+
+  <script>
+    // Function to handle smooth scrolling to sections
+    function scrollToSection(selector) {
+      const section = document.querySelector(selector);
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Intersection Observer to reveal sections on scroll
+    const sections = document.querySelectorAll('section');
+    const options = {
+      threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, options);
+    
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
